@@ -1,5 +1,3 @@
-package calculator;
-
 /************************************************************************
  ** PROJECT:   XVP
  ** LANGUAGE:  Java, J2SE JDK 1.8
@@ -16,13 +14,27 @@ package calculator;
  ** the written permission of Frequentis AG.
  **
  ************************************************************************/
+package stock;
 
-public class Calculator
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PortfolioTest
 {
-
-   public int sum( final int i, final int i1 )
+   @Test
+   public void givenTwoStocks_getMarketValue_returnsCorrectMarketValue()
    {
+      // GIVEN
+      final Portfolio sut = mock( Portfolio.class );
 
-      return i + i1;
+      // WHEN
+      when( sut.getMarketValue() ).thenReturn( 200 );
+      final int result = sut.getMarketValue();
+
+      // THEN
+      Assert.assertEquals( 200, result );
    }
 }

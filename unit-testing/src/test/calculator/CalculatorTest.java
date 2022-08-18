@@ -1,5 +1,3 @@
-package calculator;
-
 /************************************************************************
  ** PROJECT:   XVP
  ** LANGUAGE:  Java, J2SE JDK 1.8
@@ -16,13 +14,34 @@ package calculator;
  ** the written permission of Frequentis AG.
  **
  ************************************************************************/
+package calculator;
 
-public class Calculator
+import org.junit.Assert;
+import org.junit.Test;
+
+public class CalculatorTest
 {
-
-   public int sum( final int i, final int i1 )
+   @Test
+   public void sum1And1_equals2()
    {
-
-      return i + i1;
+      // GIVEN
+      final Calculator calculator = new Calculator();
+      // WHEN
+      final int result = calculator.sum( 1, 1 );
+      // THEN
+      Assert.assertEquals( 2, result );
    }
+
+
+   @Test
+   public void sum1And2_equals3()
+   {
+      // GIVEN
+      final Calculator calculator = new Calculator();
+      // WHEN
+      final int result = calculator.sum( 1, 2 );
+      // THEN
+      Assert.assertEquals( 3, result );
+   }
+
 }
